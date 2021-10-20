@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Enter feedback details to send to the developer:"
+        android:textSize="30sp"
+        android:layout_margin="10dp"
+        />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:hint="Name"
+        android:id="@+id/edName"
+        android:layout_margin="10dp"
+        />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:hint="email"
+        android:id="@+id/edEmail"
+        android:layout_margin="10dp"
+        />
+
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:id="@+id/spinner"
+        android:layout_marginTop="10dp">
+    </Spinner>
+
+    <EditText
+        android:id="@+id/edDes"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_margin="10dp"
+        android:gravity="top"
+        android:hint="Description"
+        android:inputType="textMultiLine" />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/ck"
+        android:text="Would you like an email response?"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btRegister"
+        android:layout_margin="10dp"
+        android:text="Send Feedback"
+        android:layout_gravity="center"/>
+
+
+
+</LinearLayout>

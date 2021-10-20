@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="1"
+        android:textStyle="bold"
+        android:id="@+id/tvId"
+        android:textSize="20sp"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:text="Email"
+        android:textStyle="italic"
+        android:id="@+id/tvEmail"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:text="Hoang Van"
+        android:textStyle="italic"
+        android:id="@+id/tvName"
+
+        />
+
+    <TextView
+        android:id="@+id/tvSex"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="10dp"
+        android:text="Male"
+        android:textSize="20sp"
+        android:textStyle="italic" />
+
+    <TextView
+        android:id="@+id/tvDes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvId"
+        android:layout_marginRight="10dp"
+        android:text="Description"
+        android:textSize="20sp"
+        android:textStyle="italic" />
+
+
+</LinearLayout>
