@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Add Product</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <!--css-->
+    <link th:href="@{/css/bootstrap.css}" rel="stylesheet"/>
+    <!--js-->
+    <script th:src="@{/js/bootstrap.js}"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+
+<div>
+    <h1 class="text-center">Thêm sản phẩm</h1>
+    <br/><br/>
+    <form>
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" class="form-control" id="name" placeholder="Nhập tên sản phẩm" required>
+        </div>
+        <div class="form-group">
+            <label for="price">Price</label>
+            <input type="number" class="form-control" id="price" placeholder="Nhập giá" required>
+        </div>
+        <div class="form-group">
+            <label for="quantity">Quantity</label>
+            <input type="number" class="form-control" id="quantity" placeholder="Nhập số lượng" required>
+        </div>
+        <br/>
+        <button type="button" id="btnSubmit" class="btn btn-dark">Lưu</button>
+    </form>
+</div>
+<script>
+    $("#btnSubmit").click(function () {
+        var data = {
+            name: $("#name").val(),
+            price: $("#price").val(),
+            quantity: $("#quantity").val(),
+        };
+        $.ajax({
+            type: "POST",
+            url: "http://localhost:8081/api/product",
+            contentType: "application/json; charset=utf-8",
+            data: JSON.stringify(data),
+            datatype: "json",
+            success: function (response) {
+                window.location.replace("/");
+            },
+            error: function (response) {
+            },
+        });
+    });
+</script>
+</body>
+</html>

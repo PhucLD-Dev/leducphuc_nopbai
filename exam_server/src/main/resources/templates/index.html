@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>List Product</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <!--css-->
+    <link th:href="@{/css/bootstrap.css}" rel="stylesheet" />
+    <!--js-->
+    <script th:src="@{/js/bootstrap.js}"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+
+<div>
+    <h1 class="text-center">Danh sách sản phẩm</h1>
+    <a th:href="@{/add}" class="btn btn-dark">Thêm sản phẩm mới</a>
+    <br /><br />
+    <table class="table table-bordered" align="center">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Price</th>
+            <th scope="col">Quantity</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody id="tbody">
+        </tbody>
+    </table>
+</div>
+
+<script>
+    const root = document.querySelector('#tbody');
+    $.ajax({
+        type: "GET",
+        url: "http://localhost:8081/api/product",
+        contentType: "application/json; charset=utf-8",
+        success: function (response) {
+            const htmls = response.datas.map((data, index) => `
+               <tr>
+                    <th scope="row">${data.id}</th>
+                    <td>${data.name}</td>
+                    <td>${data.price}</td>
+                    <td>${data.quantity}</td>
+                    <td><a href="/sell?id=${data.id}" class="btn btn-dark">Bán</a></td>
+               </tr>
+            `).join('');
+            root.innerHTML = htmls;
+        },
+        error: function (response) {
+        }
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Sell Product</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <!--css-->
+    <link th:href="@{/css/bootstrap.css}" rel="stylesheet" />
+    <!--js-->
+    <script th:src="@{/js/bootstrap.js}"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+<div>
+    <h1 class="text-center">Bán sản phẩm</h1>
+    <br/><br/>
+    <form>
+        <input type="hidden" id="id" th:value="${id}">
+        <div class="form-group">
+            <label for="quantity">Quantity</label>
+            <input type="number" class="form-control" id="quantity" placeholder="Nhập số lượng cần bán">
+        </div>
+        <br/>
+        <button type="button" id="btnSubmit" class="btn btn-dark">Bán</button>
+    </form>
+</div>
+<script>
+    $("#btnSubmit").click(function () {
+        var data = {
+            id: $("#id").val(),
+            quantity: $("#quantity").val(),
+        };
+        $.ajax({
+            type: "PUT",
+            url: "http://localhost:8081/api/product",
+            contentType: "application/json; charset=utf-8",
+            data: JSON.stringify(data),
+            datatype: "json",
+            success: function (response) {
+                if(response.data)
+                    window.location.replace("/");
+                else alert("Sell product fail");
+            },
+            error: function (response) {
+            },
+        });
+    });
+</script>
+</body>
+</html>
